@@ -31,7 +31,7 @@ func (b BinImg) ColorModel() color.Model {
 	return HSLModel
 }
 
-func mDecode(r io.Reader) (image.Image, error) {
+func Decode(r io.Reader) (image.Image, error) {
 	sz := make([]uint8, 2)
 	_, err := r.Read(sz)
 	if err != nil {
@@ -48,7 +48,7 @@ func mDecode(r io.Reader) (image.Image, error) {
 	return img, err
 }
 
-func mEncode(w io.Writer, img image.Image) error {
+func Encode(w io.Writer, img image.Image) error {
 	b := img.Bounds()
 	data := []uint8{uint8(math.Min(float64(b.Dx()), 255)), uint8(math.Min(float64(b.Dy()), 255))}
 	for y := b.Min.Y; y < b.Max.Y; y++ {
