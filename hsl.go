@@ -14,11 +14,11 @@ var (
 	HSLModel = color.ModelFunc(model)
 )
 
-//HSL Describes a one-byte "HSL" color
-//the least significant four bits decide L
-//if L = 0, L is instead decided by the most significant four bits to give a grayscale option with H & S = 0
-//if L > 0, the most significant four bits decide H and S = 1
-//H is limited to angles in LegalAngles and conversion uses the closest one
+//HSL Describes a one-byte "HSL" color.
+//The least significant four bits decide L.
+//If L = 0, L is instead decided by the most significant four bits to give a grayscale option with H & S = 0.
+//If L > 0, the most significant four bits decide H and S = 1.
+//H is limited to angles in LegalAngles and conversion uses the closest one.
 type HSL struct {
 	h, s, l float64
 }
