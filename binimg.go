@@ -21,6 +21,11 @@ func (b BinImg) At(x, y int) color.Color {
 	return FromByte(colour)
 }
 
+//Set sets the color of the pixel at (x, y)
+func (b *BinImg) Set(x, y int, c color.Color) {
+	b.pix[x+y*int(b.w)] = HSLModel.Convert(c).(HSL).Byte()
+}
+
 //Bounds returns the domain for which At is valid.
 func (b BinImg) Bounds() image.Rectangle {
 	return image.Rect(0, 0, int(b.w), int(b.h))
